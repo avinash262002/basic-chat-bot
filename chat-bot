@@ -1,0 +1,35 @@
+import random
+
+class ChatBot:
+    def __init__(self):
+        self.responses = {
+            "hello": ["Hi there!", "Hello!", "Hey!"],
+            "how are you?": ["I'm doing well, thanks!", "I'm good, how about you?", "I'm fine, thanks for asking!"],
+            "what's your name?": ["I'm just a simple chatbot!", "You can call me ChatBot!"],
+            "what are you doing?":["iam chatting with you", "iam talking to you!"],
+            "tell me something":["what's your mood today","you are beautiful!"],
+            "what do you do with my data?" :["i will save it!"],
+            "do you say what i say?":["yes i will"],
+            "who created you?": ["I was created by a team of developers.", "My creators prefer to remain anonymous."],
+            "how can you help me?":["i will  answer you with simple answers." ],
+            "exit": ["Goodbye!", "See you later!", "Come back soon!"]
+        }
+
+    def get_response(self, user_input):
+        if user_input.lower() in self.responses:
+            return random.choice(self.responses[user_input.lower()])
+        else:
+            return "I'm sorry, I don't understand that."
+
+    def chat(self):
+        print("Hello! I'm your chatbot. How can I assist you today?")
+        while True:
+            user_input = input("You: ")
+            response = self.get_response(user_input)
+            print("Bot:", response)
+            if user_input.lower() == "exit":
+                break
+
+if __name__ == "__main__":
+    chatbot = ChatBot()
+    chatbot.chat()
